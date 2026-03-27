@@ -1,6 +1,4 @@
 
-
-
 import {v4 as uuidv4} from 'uuid'
 
 class Courses{
@@ -10,9 +8,6 @@ class Courses{
 
   createCourse=(newCourse)=>{
     const existingCourse=this.courses.find(course=>course.name === newCourse.name);
-
-
-
     if(existingCourse !== undefined){
         throw new Error("course with same name already exists")
     }
@@ -26,9 +21,14 @@ class Courses{
         return this.courses;
   }
   getCourseById(courseById){
+    console.log(courseById)
 
-    const courseWithId=this.courses.find((course)=>course.id === courseById);
-    return courseWithId
+    const courseWithId=this.courses.find((course)=>
+      course.id === courseById)
+
+    ;
+    console.log(courseWithId)
+    return courseWithId;
 
   }
 

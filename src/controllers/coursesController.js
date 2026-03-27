@@ -35,28 +35,27 @@ const getAllCourses = (request, response) => {
     message: "courses fetched successfully!",
   });
 };
-const courseById = (request, response) => {
-  try {
-    const courseId = request.params.courseid;
-    const courseWithCourseId = courseInstance.courseById(courseId);
-    if (!courseWithCourseId) {
-      throw new Error("course with same id is already exist");
+
+
+const getCourseById = (request, response) => {
+    try {
+        const courseId = request.params.courseId
+        const courseWithCourseId = courseInstance.getCourseById(courseId);
+        if(!courseWithCourseId){
+            throw new Error("Course doesn't exist with this id!")
+        }
+        response.status(200).json({
+            success:true,
+            data: courseWithCourseId,
+            message: "couse with id has been fetched successfully!"
+        })
+    } catch (error) {
+        response.status(400).json({
+            success: false,
+            error: error,
+            message: error.message
+        })
     }
-    response.status(200).json({
-    sucess: true,
-    data: courseWithCourseId,
-    message: "courses fetched successfully!"
-  });
+}
 
-   
-  } catch (error) {
-     response.status(400).json({
-      success: false,
-      error: error,
-      message: error.message,
-    });
-
-  }
-};
-
-export { getAllCourses, createCourse, courseById };
+export { getAllCourses, createCourse, getCourseById };
