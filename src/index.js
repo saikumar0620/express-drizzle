@@ -9,13 +9,14 @@ const PORT = process.env.PORT;
 const app = express();
 
 
-app.use(express.json());
-app.get("/check", (request, response) => {
-  response.status(200).json({
-    success: true,
-    msg: "fetched",
-  });
-});
+// app.use(express.json());
+// app.get("/check", (request, response) => {
+//   response.status(200).json({
+//     success: true,
+//     msg: "fetched",
+//   });
+// });
+
 
 
 // write alll the middle ware( app.use())
