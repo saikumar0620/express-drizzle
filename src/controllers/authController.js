@@ -9,9 +9,9 @@ const usersInstances = new Users();
 const registerNewUser = (request, response) => {
   try {
     const newUserData = request.body;
+    console.log(newUserData);
     //save the newUserdata in database
     const savedUser = usersInstances.createNewuser(newUserData);
-    console.log(newUserData);
     console.log(usersInstances);
 
     response.status(201).json({
@@ -23,7 +23,7 @@ const registerNewUser = (request, response) => {
     response.status(400).json({
       success: false,
       error: error,
-      message: error.message,
+      message: error.message
     });
   }
 };

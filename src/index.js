@@ -8,8 +8,8 @@ dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
 
+app.use(express.json());
 
-// app.use(express.json());
 // app.get("/check", (request, response) => {
 //   response.status(200).json({
 //     success: true,
@@ -19,7 +19,7 @@ const app = express();
 
 
 
-// write alll the middle ware( app.use())
+// write all the middle ware( app.use())
 app.use("/api/v1/auth",authRouter);
 app.use("/api/v1/courses", courseRouter);
 app.use("/api/v1/lessons", lessonsRouter);
