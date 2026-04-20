@@ -10,12 +10,12 @@ const app = express();
 
 app.use(express.json());
 
-// app.get("/check", (request, response) => {
-//   response.status(200).json({
-//     success: true,
-//     msg: "fetched",
-//   });
-// });
+app.get("/health-check", (request, response) => {
+  response.status(200).json({
+    success: true,
+    msg: "fetched",
+  });
+});
 
 
 
